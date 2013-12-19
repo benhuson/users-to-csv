@@ -26,7 +26,6 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 if ( is_admin() ) {
 
-	if ($_GET['page'] == "users2csv.php") {
 	if ( isset( $_GET['page'] ) && $_GET['page'] == 'users2csv.php' ) {
 		function _valToCsvHelper($val, $separator, $trimFunction) {
 			if ($trimFunction) $val = $trimFunction($val);
@@ -210,7 +209,7 @@ if ( is_admin() ) {
 		add_action('admin_menu','yoast_getcsv');
 	}
 
-	if ( ! class_exists( 'Users2CSV' ) && !$_GET['csv'] == "true" ) {
+	if ( ! class_exists( 'Users2CSV' ) && ( ! isset( $_GET['csv'] ) || ! $_GET['csv'] == 'true' ) ) {
 
 		class Users2CSV {
 
