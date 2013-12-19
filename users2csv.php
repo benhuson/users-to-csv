@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 if ( is_admin() ) {
 
 	if ($_GET['page'] == "users2csv.php") {
+	if ( isset( $_GET['page'] ) && $_GET['page'] == 'users2csv.php' ) {
 		function _valToCsvHelper($val, $separator, $trimFunction) {
 			if ($trimFunction) $val = $trimFunction($val);
 			//If there is a separator (;) or a quote (") or a linebreak in the string, we need to quote it.
